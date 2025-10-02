@@ -191,7 +191,7 @@ const TEXTAREA_CLASS =
 // const SOFT_BTN_HOVER = "transition-transform duration-150 hover:-translate-y-0.5";
 
 const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8080";
+  import.meta.env.VITE_API_BASE_URL ?? "https://propadda-backend-506455747754.asia-south2.run.app";
 
 // Compact, consistent section wrappers
 const Section: React.FC<{ title: string; children: React.ReactNode; className?: string }> = ({ title, children, className }) => (
