@@ -444,10 +444,10 @@ const [saveMsg, setSaveMsg] = useState('We are saving your property details. Ple
     // If replaceMode, enforce media selection (4–8 images, 1 video, 1 brochure)
     if (replaceMode) {
       const imgCount = mediaFiles?.images?.length ?? 0;
-      const hasVideo = Boolean(mediaFiles?.video);
-      const hasBrochure = Boolean(mediaFiles?.brochure);
-      if (imgCount < 4 || imgCount > 8 || !hasVideo || !hasBrochure) {
-        alert("Please add 4–8 images, 1 video, and 1 brochure before updating.");
+      // const hasVideo = Boolean(mediaFiles?.video);
+      // const hasBrochure = Boolean(mediaFiles?.brochure);
+      if (imgCount < 4 || imgCount > 8) {
+        alert("Please add 4–8 images before updating.");
         return;
       }
     }

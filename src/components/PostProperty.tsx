@@ -430,6 +430,7 @@ const handleSwitchCategory = (next: PropertyCategory) => {
   // (Optional) if you want a complete reset of media too, uncomment:
   setMediaFiles({ images: [], video: null, brochure: null });
   setMediaMeta([]);
+  setMediaKey((k) => k + 1);   // ← force remount
   setAddressKey((k) => k + 1); 
 };
 
@@ -493,6 +494,7 @@ const [saveMsg, setSaveMsg] = useState('We are saving your property details. Ple
   // Local UI-only state
   const [totalFloorsInput, setTotalFloorsInput] = useState<string>("0");
   const [addressKey, setAddressKey] = useState(0);
+  const [mediaKey, setMediaKey] = useState(0);
 
   const getFloorOptions = (totalStr: string) => {
     const total = Math.max(0, Math.min(100, Number(totalStr || 0)));
@@ -676,6 +678,7 @@ const [saveMsg, setSaveMsg] = useState('We are saving your property details. Ple
 
   // 4) bump the key to remount child components
   // setResetKey((k) => k + 1);
+  setMediaKey((k) => k + 1);   // ← force remount
   setAddressKey((k) => k + 1); 
 };
 
@@ -774,10 +777,10 @@ const [saveMsg, setSaveMsg] = useState('We are saving your property details. Ple
 
     // --- Media validation: 4-8 images, exactly 1 video, exactly 1 brochure ---
     const imgCount = mediaFiles?.images?.length ?? 0;
-    const hasVideo = Boolean(mediaFiles?.video);
-    const hasBrochure = Boolean(mediaFiles?.brochure);
-    if (imgCount < 4 || imgCount > 8 || !hasVideo || !hasBrochure) {
-      alert("Please add 4–8 images, 1 video, and 1 brochure before submitting.");
+    // const hasVideo = Boolean(mediaFiles?.video);
+    // const hasBrochure = Boolean(mediaFiles?.brochure);
+    if (imgCount < 4 || imgCount > 8) {
+      alert("Please add 4–8 images before submitting.");
       return;
     }
 
@@ -1600,7 +1603,7 @@ const [saveMsg, setSaveMsg] = useState('We are saving your property details. Ple
       </Section>
 
       <Section title="Media" className="mt-6">
-        <MediaUploader onChanged={onMediaChanged} />
+        <MediaUploader key={mediaKey} onChanged={onMediaChanged} />
       </Section>
 
       {category !== "commercial" && (
