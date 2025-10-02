@@ -1,19 +1,13 @@
 // src/components/AmenitiesPanel.tsx
 import {
-  Snowflake, PawPrint, Droplet, Flame, UtensilsCrossed, Package, Wind,
-  FlameKindling, Users, Thermometer, Waves, Shirt, CloudFog, Trees,
-  CloudRain, Dumbbell, ArrowUpDown, Droplets, DoorOpen, Compass,
+  Snowflake, PawPrint, UtensilsCrossed, Wind,
+  FlameKindling, Waves, Shirt, CloudFog, Trees,
+  CloudRain, Dumbbell, ArrowUpDown, Droplets, DoorOpen,
   type LucideIcon,
-  CornerDownRight,
   Accessibility,
-  ShieldCheck,
-  FireExtinguisher,
-  Store,
-  StoreIcon,
   Archive,
   WashingMachine,
   Heater,
-  ToolCase,
   Drill,
   BadgeCheck,
   DoorClosedLocked,
@@ -22,7 +16,7 @@ import {
 } from "lucide-react";
 import React from "react";
 
-type FormSetter = <K extends keyof any>(updater: (prev: any) => any) => void;
+// type FormSetter = <K extends keyof any>(updater: (prev: any) => any) => void;
 
 // Fields you toggle in this panel (booleans only)
 type AmenityField =
@@ -65,14 +59,14 @@ interface CheckboxItemProps {
  */
 const AmenitiesPanel: React.FC<AmenitiesPanelProps> = ({ formData, setFormData }) => {
   // helper to toggle boolean fields
-  const toggle = (key: string) => {
-    setFormData((prev: any) => ({ ...prev, [key]: !Boolean(prev[key]) }));
-  };
+  // const toggle = (key: string) => {
+  //   setFormData((prev: any) => ({ ...prev, [key]: !Boolean(prev[key]) }));
+  // };
 
   // helper to set explicit boolean
-  const setBool = (key: string, value: boolean) => {
-    setFormData((prev: any) => ({ ...prev, [key]: value }));
-  };
+  // const setBool = (key: string, value: boolean) => {
+  //   setFormData((prev: any) => ({ ...prev, [key]: value }));
+  // };
 
   // pill toggle (visual tag) used for groups that look like chips in screenshot
   // const Pill: React.FC<{ label: string; field: string }> = ({ label, field }) => {

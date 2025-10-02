@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import { User, Mail, Phone, MapPin, Edit3, Send, Briefcase, Upload, AlertCircle, Loader2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Edit3, Send, Briefcase, Upload, AlertCircle, Loader2 } from 'lucide-react';
 
 // --- Configuration ---
  const API_BASE_URL =

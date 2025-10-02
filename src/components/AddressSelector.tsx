@@ -1,7 +1,7 @@
 // src/components/AddressSelector.tsx
 import React, { useState } from "react";
 import axios from "axios";
-import { MapPin, Building2, Map, Home, Landmark, KeySquare, ToggleRight, ToggleLeft, MapPinHouse, ArrowDownToLine, LandPlot } from "lucide-react";
+import { Map, Home, Landmark, ToggleRight, ToggleLeft, MapPinHouse, ArrowDownToLine, LandPlot } from "lucide-react";
 
 export interface StateItem {
   iso2: string; // e.g. "MH"
@@ -39,8 +39,8 @@ const CSC_API_KEY = (import.meta.env.VITE_CSC_API_KEY as string) || "";
 const INPUT_CLASS =
   "w-full bg-white border border-gray-300 rounded p-2.5 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-orange-400 transition";
 const SELECT_CLASS = INPUT_CLASS;
-const TOGGLE_CLASS =
-  "inline-flex items-center gap-2 text-sm text-gray-700";
+// const TOGGLE_CLASS =
+//   "inline-flex items-center gap-2 text-sm text-gray-700";
 
 
 const AddressSelector: React.FC<Props> = ({ stateValue, cityValue, localityValue, onChange }) => {

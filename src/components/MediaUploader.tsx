@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { Images, Video, FileText, X, Upload, Trash2 } from "lucide-react";
+import { Images, Video, FileText, Upload, Trash2 } from "lucide-react";
 
 export type SavedMeta = {
   mediaType: "IMAGE" | "VIDEO" | "BROCHURE";

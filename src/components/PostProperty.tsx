@@ -4,8 +4,7 @@ import axios from "axios";
 import AddressSelector from "./AddressSelector";
 import MediaUploader, { type SavedMeta } from "./MediaUploader";
 import AmenitiesPanel from "./AmenitiesPanel";
-import { Loader2, CheckCircle2, XCircle, BadgeCheck, Bath, BatteryCharging, BedDouble, Bell, Bookmark, BookMarked, Briefcase, Building, Calendar, CalendarCheck, CalendarRange, Car, CarFront, ChevronsUpDown, Clock, Compass, ConciergeBell, DoorClosed, Droplet, FileText, Handshake, History, House, HousePlus, IndianRupee, Layers, LockIcon, MapPin, Maximize2, MoveVertical, PanelsTopLeft, Presentation, Projector, Shield, SoapDispenserDroplet, Sofa, TagIcon, TrendingUp, Type, Users, Wrench } from "lucide-react";
-import { API_BASE } from "../api/http";
+import { Loader2, CheckCircle2, XCircle, BadgeCheck, Bath, BatteryCharging, BedDouble, BookMarked, Briefcase, Building, CalendarCheck, CalendarRange, Car, CarFront, ChevronsUpDown, Compass, ConciergeBell, DoorClosed, FileText, History, HousePlus, IndianRupee, Layers, LockIcon, MapPin, Maximize2, PanelsTopLeft, Projector, Shield, SoapDispenserDroplet, Sofa, TagIcon, TrendingUp, Users, Wrench } from "lucide-react";
 
 // ---------------- Types ----------------
 type PropertyCategory = "residential" | "commercial";

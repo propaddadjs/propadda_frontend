@@ -8,8 +8,6 @@ import {
   Bell,
   IdCard,
   LifeBuoy,
-  MessageSquare,
-  UserCog,
   ChevronRight,
   LogOut,
   HousePlus,

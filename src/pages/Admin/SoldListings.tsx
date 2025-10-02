@@ -2,27 +2,16 @@
 import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import FilterSidebar, { type Filters as SidebarFilters } from "../../components/FilterSidebar";
+import { type Filters as SidebarFilters } from "../../components/FilterSidebar";
 import {
   BedDouble,
   Bath,
-  Star,
-  BadgeCheck,
-  TimerOff,
-  CheckCircle2,
   Eye,
-  SearchX,
-  List,
-  ChevronLeft,
-  ChevronRight,
-  ListFilter,
   Building,
   Home,
   Tag,
-  Briefcase, // Correct icon for cabins
-  Ruler,      // Correct icon for area/size
+  Briefcase,
   Maximize2,
-  StarOff,
   MapPin,
   CircleCheckBig,   // Alternative for area/size
 } from "lucide-react";

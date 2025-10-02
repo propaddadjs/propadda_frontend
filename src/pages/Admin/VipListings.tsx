@@ -7,20 +7,12 @@ import {
   BedDouble,
   Bath,
   Star,
-  BadgeCheck,
-  TimerOff,
   CheckCircle2,
   Eye,
-  SearchX,
-  List,
-  ChevronLeft,
-  ChevronRight,
-  ListFilter,
   Building,
   Home,
   Tag,
-  Briefcase, // Correct icon for cabins
-  Ruler,      // Correct icon for area/size
+  Briefcase,
   Maximize2,
   StarOff,
   MapPin,   // Alternative for area/size

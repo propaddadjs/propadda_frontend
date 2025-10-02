@@ -1,11 +1,11 @@
 // src/components/EditPropertyForm.tsx
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import AddressSelector from "./AddressSelector";
 import MediaUploader, { type SavedMeta } from "./MediaUploader";
 import AmenitiesPanel from "./AmenitiesPanel";
-import { Loader2, CheckCircle2, XCircle, BadgeCheck, Bath, BatteryCharging, BedDouble, Bell, Bookmark, BookMarked, Briefcase, Building, Building2, Calendar, CalendarCheck, CalendarRange, Car, CarFront, ChevronsUpDown, Clock, Compass, ConciergeBell, DoorClosed, Droplet, Edit, FileText, Handshake, History, Home, House, HousePlus, Images, IndianRupee, Layers, LockIcon, MapPin, Maximize2, MoveVertical, PanelsTopLeft, Presentation, Projector, RotateCw, Shapes, Shield, SoapDispenserDroplet, Sofa, TagIcon, TrendingUp, Type, Users, Video, Wrench } from "lucide-react";
+import { Loader2, CheckCircle2, XCircle, BadgeCheck, Bath, BatteryCharging, BedDouble, BookMarked, Briefcase, Building2, CalendarCheck, CalendarRange, Car, CarFront, ChevronsUpDown, Compass, ConciergeBell, DoorClosed, Edit, FileText, History, Home, Images, IndianRupee, Layers, LockIcon, MapPin, Maximize2, PanelsTopLeft, Projector, RotateCw, Shapes, Shield, SoapDispenserDroplet, Sofa, TagIcon, TrendingUp, Users, Video, Wrench } from "lucide-react";
 
 // ---------- Shared styling (same as create page) ----------
 const INPUT_CLASS =

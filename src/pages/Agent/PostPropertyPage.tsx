@@ -1,8 +1,8 @@
 import React from "react";
-import Breadcrumb from "../../components/Breadcrumb";
-import HeaderPages from "../../components/HeaderPages";
+// import Breadcrumb from "../../components/Breadcrumb";
+// import HeaderPages from "../../components/HeaderPages";
 import PropertyForm from "../../components/PostProperty";
-import { HousePlus } from "lucide-react";
+// import { HousePlus } from "lucide-react";
 
 const PostPropPage: React.FC = () => {
   return (
