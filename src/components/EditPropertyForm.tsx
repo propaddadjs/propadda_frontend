@@ -64,6 +64,9 @@ export type PropertyFormData = {
   lockIn?: number;
   yearlyIncrease?: number;
 
+  commercialOwnerId?: number;
+  residentialOwnerId?: number;
+
   // Amenity booleans, etc. (same set you used on create)
   centerCooling?: boolean;
   fireAlarm?: boolean;
@@ -453,7 +456,27 @@ const [saveMsg, setSaveMsg] = useState('We are saving your property details. Ple
     setSaveStatus('saving');
     setSaveMsg('We are saving your property details. Please wait…');
 
-    const payload = { listingId, category,  ...formData, preference: initialData.preference, propertyType: initialData.propertyType };
+    const HARD_CODED_USER_ID = 2;
+
+    const payload: PropertyFormData & {
+      listingId: number;
+      category: PropertyCategory;
+    } = {
+      listingId,
+      category,
+      ...formData,
+      preference: initialData.preference,
+      propertyType: initialData.propertyType,
+    };
+
+    // inject owner id based on category
+    if (category.toLowerCase() === "commercial") {
+      (payload as any).commercialOwnerId = HARD_CODED_USER_ID;
+    } else {
+      (payload as any).residentialOwnerId = HARD_CODED_USER_ID;
+    }
+
+    // const payload = { listingId, category,  ...formData, preference: initialData.preference, propertyType: initialData.propertyType };
     const navigate = useNavigate();
     const url =
       category === "Commercial"

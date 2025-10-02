@@ -47,6 +47,8 @@ interface FormData {
   parking?: boolean;
   lockIn?: number;
   yearlyIncrease?: number;
+  commercialOwnerId?: number;
+  residentialOwnerId?: number;
   // Amenities (residential)
   centerCooling?: boolean;
   fireAlarm?: boolean;
@@ -783,10 +785,18 @@ const [saveMsg, setSaveMsg] = useState('We are saving your property details. Ple
     setSaveStatus('saving');
     setSaveMsg('We are saving your property details. Please wait…');
 
+    const HARD_CODED_USER_ID = 2;
+
     const payload = { ...formData, media: mediaMeta };
     console.log("POST payload:", payload);
 
     const url = category === "residential" ? `${API_BASE_URL}/residential-properties/add` : `${API_BASE_URL}/commercial-properties/add`;
+
+    if (category.toLowerCase() === "commercial") {
+      (payload as any).commercialOwnerId = HARD_CODED_USER_ID;
+    } else {
+      (payload as any).residentialOwnerId = HARD_CODED_USER_ID;
+    }
 
     try {
       const form = new FormData();
