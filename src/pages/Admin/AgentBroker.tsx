@@ -188,7 +188,7 @@ const AgentBroker: React.FC = () => {
   const pageSize = 8;
 
   const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL ?? "https://propadda-backend-506455747754.asia-south2.run.app";
+  import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8080";
 
   // sort by userId desc before paginating
   const sorted = useMemo(

@@ -307,7 +307,7 @@ const PendingListings: React.FC = () => {
   const [appliedFilters, setAppliedFilters] = useState<SidebarFilters | null>(null);
 
    const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL ?? "https://propadda-backend-506455747754.asia-south2.run.app";
+  import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8080";
 
 
   /* ---- Reject modal state (matches ListingDetail behavior) ---- */

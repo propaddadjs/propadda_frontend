@@ -14,7 +14,7 @@ import {
 
 // --- Configuration ---
  const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL ?? "https://propadda-backend-506455747754.asia-south2.run.app";
+  import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8080";
 
 const AGENT_ID = 2; 
 const PAGE_SIZE_OPTIONS = [5, 8, 10, 15]; 
