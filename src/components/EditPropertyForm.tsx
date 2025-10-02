@@ -517,7 +517,7 @@ const [saveMsg, setSaveMsg] = useState('We are saving your property details. Ple
 
   // --------- Render ---------
   return (
-    <div className="w-full mx-auto bg-white p-8 shadow-lg rounded-lg mt-2">
+    <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8 bg-white p-6 sm:p-8 shadow-lg rounded-lg mt-2">
          <div className="flex justify-center">
       <div className="mb-6 rounded-2xl bg-gradient-to-r from-orange-50 to-[#ffe9df] border border-orange-100 p-5">
         
