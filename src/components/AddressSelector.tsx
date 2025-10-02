@@ -1,5 +1,5 @@
 // src/components/AddressSelector.tsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Map, Home, Landmark, ToggleRight, ToggleLeft, MapPinHouse, ArrowDownToLine, LandPlot } from "lucide-react";
 
@@ -23,6 +23,9 @@ interface Props {
   stateValue: string;
   cityValue: string;
   localityValue: string;
+  addressValue?: string; 
+  pincodeValue?: number; 
+  nearbyPlaceValue?: string; 
   onChange: (changes: {
     state?: string;
     city?: string;
@@ -43,7 +46,13 @@ const SELECT_CLASS = INPUT_CLASS;
 //   "inline-flex items-center gap-2 text-sm text-gray-700";
 
 
-const AddressSelector: React.FC<Props> = ({ stateValue, cityValue, localityValue, onChange }) => {
+const AddressSelector: React.FC<Props> = ({ stateValue,
+  cityValue,
+  localityValue,
+  addressValue,
+  pincodeValue,
+  nearbyPlaceValue,
+  onChange, }) => {
   const [pincode, setPincode] = useState<string>(""); // keep input UX as string to allow partial typing
   const [isManual, setIsManual] = useState<boolean>(false);
 
@@ -55,6 +64,21 @@ const AddressSelector: React.FC<Props> = ({ stateValue, cityValue, localityValue
   const [nearbyPlace, setNearbyPlace] = useState<string>(""); // manual nearby place textbox
 
   const [selectedStateIso2, setSelectedStateIso2] = useState<string>("");
+
+  useEffect(() => {
+    setAddressText(addressValue ?? "");
+    setNearbyPlace(nearbyPlaceValue ?? "");
+    setPincode(pincodeValue ? String(pincodeValue) : "");
+  }, [addressValue, nearbyPlaceValue, pincodeValue]);
+
+  // Preload locality options if we have a saved pincode in "pincode mode"
+  useEffect(() => {
+    const pin = pincodeValue ? String(pincodeValue) : "";
+    if (!isManual && pin.length === 6) {
+      setPincode(pin);
+      // fetch post offices for pin and setPostOffices(...) if you want
+    }
+  }, [isManual, pincodeValue]);
 
   // Load post offices by pincode (postalpincode.in flow)
   const handleLoad = async () => {

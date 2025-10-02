@@ -230,11 +230,11 @@ const PropertyForm: React.FC = () => {
   const [category, setCategory] = useState<PropertyCategory>("residential");
   const [mediaMeta, setMediaMeta] = useState<SavedMeta[]>([]);
   const [mediaFiles, setMediaFiles] = useState<FilesPayload | null>(null);
-  const [, setResetKey] = useState(0);
+  // const [, setResetKey] = useState(0);
 
   const [formData, setFormData] = useState<FormData>({
-    preference: "Sell",
-    propertyType: "Residential",
+    preference: "Sale",
+    propertyType: "",
     state: "",
     city: "",
     locality: "",
@@ -327,7 +327,7 @@ const PropertyForm: React.FC = () => {
   });
 
   const INITIAL_FORM: FormData = {
-  preference: "Sell",
+  preference: "Sale",
   propertyType: "",
   state: "",
   city: "",
@@ -461,7 +461,7 @@ const [saveMsg, setSaveMsg] = useState('We are saving your property details. Ple
 
   // -------------- Derived UI flags --------------
   const isCommercial = category === "commercial";
-  const isSell = (formData.preference || "").toLowerCase() === "sell";
+  const isSell = (formData.preference || "").toLowerCase() === "sale";
   const isCommercialPlot = isCommercial && formData.propertyType === "Plot/Land";
   const showFloorsUI = !isCommercialPlot; // (1) Hide floors when Commercial + Plot/Land
   const showAvailability = isSell && !isCommercialPlot; // (1) Hide availability when Commercial + Plot/Land
@@ -573,8 +573,8 @@ const [saveMsg, setSaveMsg] = useState('We are saving your property details. Ple
   // 1) reset top-level toggles
   setCategory("residential");
   setFormData({
-    preference: "Sell",
-    propertyType: "Residential",
+    preference: "Sale",
+    propertyType: "",
     state: "",
     city: "",
     locality: "",
@@ -592,7 +592,7 @@ const [saveMsg, setSaveMsg] = useState('We are saving your property details. Ple
     possessionBy: null,
     floor: 0,
     reraNumber: "",
-    totalFloors: 5,
+    totalFloors: 0,
     balconies: 0,
     powerBackup: "None",
     pincode: undefined,
@@ -675,7 +675,7 @@ const [saveMsg, setSaveMsg] = useState('We are saving your property details. Ple
   setMediaFiles({ images: [], video: null, brochure: null });
 
   // 4) bump the key to remount child components
-  setResetKey((k) => k + 1);
+  // setResetKey((k) => k + 1);
   setAddressKey((k) => k + 1); 
 };
 
@@ -916,7 +916,7 @@ const [saveMsg, setSaveMsg] = useState('We are saving your property details. Ple
       {/* <div className="mb-6">
         <label className="block text-lg font-medium mb-2">I'm looking for</label>
         <div className="flex space-x-4">
-          {(category === "residential" ? ["Rent", "Sell", "PG"] : ["Rent", "Sell"]).map((option) => (
+          {(category === "residential" ? ["Rent", "Sell", "PG"] : ["Rent", "Sale"]).map((option) => (
             <button
               key={option}
               type="button"
@@ -1592,6 +1592,9 @@ const [saveMsg, setSaveMsg] = useState('We are saving your property details. Ple
           stateValue={String(formData.state || "")}
           cityValue={String(formData.city || "")}
           localityValue={String(formData.locality || "")}
+          addressValue={String(formData.address || "")}
+          pincodeValue={formData.pincode}
+          nearbyPlaceValue={String(formData.nearbyPlace || "")}
           onChange={handleAddressChange}
         />
       </Section>

@@ -228,7 +228,7 @@ const EditPropertyForm: React.FC<EditPropertyFormProps> = ({
 }) => {
   // Form state
   const [formData, setFormData] = useState<PropertyFormData>(initialData);
-
+  const navigate = useNavigate();
   // Price pretty input
   const [priceInput, setPriceInput] = useState<string>(() =>
     initialData.price ? `₹ ${initialData.price.toLocaleString("en-IN")}` : ""
@@ -251,7 +251,7 @@ const [saveMsg, setSaveMsg] = useState('We are saving your property details. Ple
 
   // Derived flags
   const isCommercial = category === "Commercial";
-  const isSell = (formData.preference || "").toLowerCase() === "sell";
+  const isSell = (formData.preference || "").toLowerCase() === "sale";
   const isCommercialPlot = isCommercial && formData.propertyType === "Plot/Land";
   const showFloorsUI = !isCommercialPlot;
   const showAvailability = isSell && !isCommercialPlot;
@@ -477,7 +477,7 @@ const [saveMsg, setSaveMsg] = useState('We are saving your property details. Ple
     }
 
     // const payload = { listingId, category,  ...formData, preference: initialData.preference, propertyType: initialData.propertyType };
-    const navigate = useNavigate();
+
     const url =
       category === "Commercial"
         ? `${apiBase}/commercial-properties/update/${agentId}`
@@ -918,6 +918,9 @@ const [saveMsg, setSaveMsg] = useState('We are saving your property details. Ple
           stateValue={String(formData.state || "")}
           cityValue={String(formData.city || "")}
           localityValue={String(formData.locality || "")}
+          addressValue={String(formData.address || "")}
+          pincodeValue={formData.pincode}
+          nearbyPlaceValue={String(formData.nearbyPlace || "")}
           onChange={handleAddressChange}
         />
       </div>

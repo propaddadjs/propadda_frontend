@@ -56,7 +56,7 @@ type AgentAllPropertiesResponse = {
 const getPreferenceTag = (preference?: string): { text: string; bgColor: string } => {
   switch (preference?.toLowerCase()) {
     case "rent": return { text: "For Rent", bgColor: "bg-blue-500" };
-    case "sell": return { text: "For Sale", bgColor: "bg-red-500" };
+    case "sale": return { text: "For Sale", bgColor: "bg-red-500" };
     case "pg":   return { text: "For PG", bgColor: "bg-green-500" };
     default:     return { text: "N/A", bgColor: "bg-gray-400" };
   }

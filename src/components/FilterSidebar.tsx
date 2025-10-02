@@ -29,7 +29,7 @@ import {
 export type Filters = {
   category: "All" | "Residential" | "Commercial";
   propertyTypes: string[]; // checkboxes
-  preference: "All" | "Rent" | "Sell" | "PG";
+  preference: "All" | "Rent" | "Sale" | "PG";
   priceMin?: number | null;
   priceMax?: number | null;
   furnishing?: "" | "Unfurnished" | "Semi-furnished" | "Fully-furnished";
@@ -73,7 +73,7 @@ const DEFAULT_FILTERS: Filters = {
 const RESIDENTIAL_TYPES = ["Flat", "House", "Villa", "Apartment"];
 const COMMERCIAL_TYPES = ["Office", "Plot/Land", "Storage/Warehouse"];
 
-const PREFERENCES = ["Rent", "Sell", "PG"];
+const PREFERENCES = ["Rent", "Sale", "PG"];
 const FURNISHING = ["Unfurnished", "Semi-furnished", "Fully-furnished"];
 const AVAILABILITY = ["Ready to move", "Under Construction"];
 const AGE_OPTIONS = [
@@ -148,7 +148,7 @@ const FilterSidebar: React.FC<Props> = ({ initial = {}, onApply, onReset }) => {
 
   // preference options based on category
   const preferenceOptions = useMemo(
-    () => (isCommercial ? ["Rent", "Sell"] : PREFERENCES),
+    () => (isCommercial ? ["Rent", "Sale"] : PREFERENCES),
     [isCommercial]
   );
 

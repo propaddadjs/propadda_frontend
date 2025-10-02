@@ -48,7 +48,7 @@ const AgentLayout: React.FC = () => {
 
   // Replace with your actual auth-sourced agent id
   const agentId = Number(localStorage.getItem("agentId") || 1);
-  const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://propadda-backend-506455747754.asia-south2.run.app";
 
   const fetchUnreadCount = async () => {
     try {
