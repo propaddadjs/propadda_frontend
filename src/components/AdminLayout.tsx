@@ -50,7 +50,7 @@ const AdminLayout: React.FC = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [hasUnread, setHasUnread] = useState<boolean>(false);
   const navigate = useNavigate();
-  const location = useLocation();
+  //const location = useLocation();
   const mainContentMargin = sidebarCollapsed ? 'ml-16' : 'ml-56';
 
   const [profileOpen, setProfileOpen] = useState(false);

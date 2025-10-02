@@ -37,8 +37,8 @@ const KycCard: React.FC<{
   onReject: (id: number) => void;
 }> = ({ s, onApprove, onReject }) => {
   const name = `${s.firstName ?? ""} ${s.lastName ?? ""}`.trim() || "Unnamed";
-  const phoneHref = s.phoneNumber ? `tel:+91${s.phoneNumber}` : undefined;
-  const mailHref = s.email ? `mailto:${s.email}` : undefined;
+  // const phoneHref = s.phoneNumber ? `tel:+91${s.phoneNumber}` : undefined;
+  // const mailHref = s.email ? `mailto:${s.email}` : undefined;
   const location = [s.city, s.state].filter(Boolean).join(", ");
 
   // role -> badge styling

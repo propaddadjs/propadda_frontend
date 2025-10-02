@@ -59,7 +59,7 @@ const AgentFeedback: React.FC = () => {
     const newCategory = e.target.value as CategoryKey; 
     
     // FIX: Index map using the asserted type
-    const firstSubCategory = FEEDBACK_CATEGORIES_MAP[newCategory]?.[0] || '';
+    // const firstSubCategory = FEEDBACK_CATEGORIES_MAP[newCategory]?.[0] || '';
     
     setFormData(prev => ({ 
       ...prev, 

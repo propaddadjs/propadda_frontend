@@ -252,7 +252,7 @@ const Card: React.FC<{
 
 /* --- VipListings page --- */
 const VipListings: React.FC = () => {
-  const [rawData, setRawData] = useState<PropertyResponse[]>([]);
+  const [, setRawData] = useState<PropertyResponse[]>([]);
   const [pageSlice, setPageSlice] = useState<PropertyResponse[]>([]);
   const [page, setPage] = useState<number>(0);
   const [size, setSize] = useState<number>(10);

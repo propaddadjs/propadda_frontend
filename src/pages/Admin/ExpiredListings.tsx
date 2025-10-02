@@ -1,7 +1,7 @@
 // src/pages/admin/ExpiredListings.tsx
 import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import FilterSidebar, { type Filters as SidebarFilters } from "../../components/FilterSidebar";
 import {
   BedDouble,
@@ -219,7 +219,7 @@ const Card: React.FC<{
 
 /* --- ExpiredListings page --- */
 const ExpiredListings: React.FC = () => {
-  const [rawData, setRawData] = useState<PropertyResponse[]>([]);
+  const [, setRawData] = useState<PropertyResponse[]>([]);
   const [pageSlice, setPageSlice] = useState<PropertyResponse[]>([]);
   const [page, setPage] = useState<number>(0);
   const [size, setSize] = useState<number>(10);

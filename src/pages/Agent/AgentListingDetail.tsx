@@ -191,8 +191,8 @@ const AgentListingDetail: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   // Rejection modal state
-  const [showRejectModal, setShowRejectModal] = useState(false);
-  const [rejectReason, setRejectReason] = useState("");
+  const [showRejectModal] = useState(false);
+  // const [rejectReason, setRejectReason] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const [showAll, setShowAll] = useState(false);
 

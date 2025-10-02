@@ -251,7 +251,7 @@ const Card: React.FC<{
 
 /* --- SoldListings page --- */
 const SoldListings: React.FC = () => {
-  const [rawData, setRawData] = useState<PropertyResponse[]>([]);
+  const [, setRawData] = useState<PropertyResponse[]>([]);
   const [pageSlice, setPageSlice] = useState<PropertyResponse[]>([]);
   const [page, setPage] = useState<number>(0);
   const [size, setSize] = useState<number>(10);
@@ -394,17 +394,17 @@ const SoldListings: React.FC = () => {
   };
 
   /* -------------------- Event handlers -------------------- */
-  const onFilterApply = (f: SidebarFilters) => {
-    setAppliedFilters(f);
-    setPage(0);
-    fetch(f);
-  };
+  // const onFilterApply = (f: SidebarFilters) => {
+  //   setAppliedFilters(f);
+  //   setPage(0);
+  //   fetch(f);
+  // };
 
-  const onFilterReset = () => {
-    setAppliedFilters(null);
-    setPage(0);
-    fetch(null);
-  };
+  // const onFilterReset = () => {
+  //   setAppliedFilters(null);
+  //   setPage(0);
+  //   fetch(null);
+  // };
 
 //   const unmarkVip = async (id: number, category: string) => {
 //     try {

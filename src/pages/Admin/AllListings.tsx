@@ -274,7 +274,7 @@ const Card: React.FC<{
 
 /* AllListings page */
 const AllListings: React.FC = () => {
-  const [rawData, setRawData] = useState<PropertyResponse[]>([]);
+  const [, setRawData] = useState<PropertyResponse[]>([]);
   const [pageSlice, setPageSlice] = useState<PropertyResponse[]>([]);
   const [page, setPage] = useState<number>(0); // 0-based
   const [size, setSize] = useState<number>(10);

@@ -21,9 +21,9 @@ const cx = (...cls: (string | false | undefined | null)[]) =>
 const initials = (first?: string, last?: string) =>
   ((first?.[0] || "") + (last?.[0] || "")).toUpperCase();
 
-const btn = (...cls: (string | false | undefined | null)[]) =>
-  "inline-flex items-center justify-center gap-2 rounded-lg border text-sm transition " +
-  (cls.filter(Boolean).join(" ") || "");
+// const btn = (...cls: (string | false | undefined | null)[]) =>
+//   "inline-flex items-center justify-center gap-2 rounded-lg border text-sm transition " +
+//   (cls.filter(Boolean).join(" ") || "");
 
 // role -> badge styling
 const roleBadge = (role?: string) => {
@@ -48,8 +48,8 @@ const prettyRole = (role?: string) => {
 // --- a single user card ---
 const UserCard: React.FC<{ u: UserResponse }> = ({ u }) => {
   const name = `${u.firstName ?? ""} ${u.lastName ?? ""}`.trim() || "Unnamed";
-  const phoneHref = u.phoneNumber ? `tel:+91${u.phoneNumber}` : undefined;
-  const mailHref = u.email ? `mailto:${u.email}` : undefined;
+  // const phoneHref = u.phoneNumber ? `tel:+91${u.phoneNumber}` : undefined;
+  // const mailHref = u.email ? `mailto:${u.email}` : undefined;
   const location = [u.city, u.state].filter(Boolean).join(", ");
 
   return (

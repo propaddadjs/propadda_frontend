@@ -238,7 +238,7 @@ const EditPropertyForm: React.FC<EditPropertyFormProps> = ({
 
   // Media (replace flow)
   const [replaceMode, setReplaceMode] = useState(false);
-  const [mediaMeta, setMediaMeta] = useState<SavedMetaState>([]);
+  const [, setMediaMeta] = useState<SavedMetaState>([]);
   const [mediaFiles, setMediaFiles] = useState<FilesPayload | null>(null);
 
 const [savingOpen, setSavingOpen] = useState(false);

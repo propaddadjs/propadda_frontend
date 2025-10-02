@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   BedDouble,
   Bath,
@@ -82,7 +82,7 @@ const getPreferenceTag = (preference?: string): { text: string; bgColor: string 
 
 /* Card component for Agent List */
 const AgentListingCard: React.FC<{ p: PropertyResponse }> = ({ p }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const media = p.mediaFiles ?? p.media ?? [];
   const thumb = media.find((m) => m.ord === 1)?.url;
   

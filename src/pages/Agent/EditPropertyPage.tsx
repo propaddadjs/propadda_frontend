@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import EditPropertyForm, { type PropertyFormData } from "../../components/EditPropertyForm"; // adjust path
+import EditPropertyForm from "../../components/EditPropertyForm"; // adjust path
 import { useParams } from "react-router-dom";
 
 type PropertyCategory = "Residential" | "Commercial";
@@ -12,133 +12,133 @@ interface OwnerResponse {
   email?: string;
   phoneNumber?: string;
 }
-type ApiResponse = {
-  // shape you get from backend; adjust as needed
-listingId: number;
-  category: PropertyCategory;
-  preference: string;
-  propertyType: string;
-  maintenance?: number;
-  title?: string;
-  description?: string;
-  price?: number;
-  area?: number;
-  city?: string;
-  state?: string;
-  locality?: string;
-  address?: string;
-  pincode?: number;
-  nearbyPlace?: string;
-  bedrooms?: number;
-  bathrooms?: number;
-  furnishing?: string;
-  facing?: string;
-  floor?: number;
-  age?: string;
-  availability?: string;
-  reraNumber?: string;
-  reraVerified?: Boolean;
-  totalFloors?: number;
-  securityDeposit?: number;
-  balconies?: number;
-  powerBackup?: string;
-  coveredParking?: number;
-  openParking?: number;
-  adminApproved?: string;
-  expired?: boolean;
-  vip?: boolean;
-  // media
-  media?: MediaDto[];       // fallback
-  mediaFiles?: MediaDto[];  // backend sample uses this
-  // owner
-  residentialOwner?: OwnerResponse;
-  commercialOwner?: OwnerResponse;
-  // commercial extras
-  cabins?: number;
-  meetingRoom?: boolean;
-  washroom?: boolean;
-  conferenceRoom?: boolean;
-  receptionArea?: boolean;
-  lift?: boolean;
-  parking?: boolean;
-  lockIn?: number;
-  yearlyIncrease?: number;
-  // amenities (partial list kept optional)
-  centerCooling?: boolean;
-  fireAlarm?: boolean;
-  heating?: boolean;
-  gym?: boolean;
-  modularKitchen?: boolean;
-  pool?: boolean;
-  elevator?: boolean;
-  petFriendly?: boolean;
-  storage?: boolean;
-  laundry?: boolean;
-  dishwasher?: boolean;
-  dryer?: boolean;
-  sauna?: boolean;
-  emergencyExit?: boolean;
-  waterPurifier?: boolean;
-  gasPipeline?: boolean;
-  park?: boolean;
-  vastuCompliant?: boolean;
-  rainWaterHarvesting?: boolean;
-  maintenanceStaff?: boolean;
+// type ApiResponse = {
+//   // shape you get from backend; adjust as needed
+// listingId: number;
+//   category: PropertyCategory;
+//   preference: string;
+//   propertyType: string;
+//   maintenance?: number;
+//   title?: string;
+//   description?: string;
+//   price?: number;
+//   area?: number;
+//   city?: string;
+//   state?: string;
+//   locality?: string;
+//   address?: string;
+//   pincode?: number;
+//   nearbyPlace?: string;
+//   bedrooms?: number;
+//   bathrooms?: number;
+//   furnishing?: string;
+//   facing?: string;
+//   floor?: number;
+//   age?: string;
+//   availability?: string;
+//   reraNumber?: string;
+//   reraVerified?: Boolean;
+//   totalFloors?: number;
+//   securityDeposit?: number;
+//   balconies?: number;
+//   powerBackup?: string;
+//   coveredParking?: number;
+//   openParking?: number;
+//   adminApproved?: string;
+//   expired?: boolean;
+//   vip?: boolean;
+//   // media
+//   media?: MediaDto[];       // fallback
+//   mediaFiles?: MediaDto[];  // backend sample uses this
+//   // owner
+//   residentialOwner?: OwnerResponse;
+//   commercialOwner?: OwnerResponse;
+//   // commercial extras
+//   cabins?: number;
+//   meetingRoom?: boolean;
+//   washroom?: boolean;
+//   conferenceRoom?: boolean;
+//   receptionArea?: boolean;
+//   lift?: boolean;
+//   parking?: boolean;
+//   lockIn?: number;
+//   yearlyIncrease?: number;
+//   // amenities (partial list kept optional)
+//   centerCooling?: boolean;
+//   fireAlarm?: boolean;
+//   heating?: boolean;
+//   gym?: boolean;
+//   modularKitchen?: boolean;
+//   pool?: boolean;
+//   elevator?: boolean;
+//   petFriendly?: boolean;
+//   storage?: boolean;
+//   laundry?: boolean;
+//   dishwasher?: boolean;
+//   dryer?: boolean;
+//   sauna?: boolean;
+//   emergencyExit?: boolean;
+//   waterPurifier?: boolean;
+//   gasPipeline?: boolean;
+//   park?: boolean;
+//   vastuCompliant?: boolean;
+//   rainWaterHarvesting?: boolean;
+//   maintenanceStaff?: boolean;
 
-  // Other Rooms
-  poojaRoom?: boolean;
-  studyRoom?: boolean;
-  servantRoom?: boolean;
-  storeRoom?: boolean;
-  // Property Features
-  highCeilingHeight?: boolean;
-  falseCeilingLighting?: boolean;
-  internetConnectivity?: boolean;
-  centrallyAirConditioned?: boolean;
-  securityFireAlarm?: boolean;
-  recentlyRenovated?: boolean;
-  privateGardenTerrace?: boolean;
-  naturalLight?: boolean;
-  airyRooms?: boolean;
-  intercomFacility?: boolean;
-  spaciousInteriors?: boolean;
-  // Society or Building Features
-  fitnessCenter?: boolean;
-  swimmingPool?: boolean;
-  clubhouseCommunityCenter?: boolean;
-  securityPersonnel?: boolean;
-  lifts?: boolean;
-  // Additional Features
-  separateEntryForServantRoom?: boolean;
-  noOpenDrainageAround?: boolean;
-  bankAttachedProperty?: boolean;
-  lowDensitySociety?: boolean;
-  // Water Source
-  municipalCorporation?: boolean;
-  borewellTank?: boolean;
-  water24x7?: boolean;
-  // Overlooking
-  overlookingPool?: boolean;
-  overlookingParkGarden?: boolean;
-  overlookingClub?: boolean;
-  overlookingMainRoad?: boolean;
-  // Other Features
-  inGatedSociety?: boolean;
-  cornerProperty?: boolean;
-  petFriendlySociety?: boolean;
-  wheelchairFriendly?: boolean;
-  // Location Advantages
-  closeToMetroStation?: boolean;
-  closeToSchool?: boolean;
-  closeToHospital?: boolean;
-  closeToMarket?: boolean;
-  closeToRailwayStation?: boolean;
-  closeToAirport?: boolean;
-  closeToMall?: boolean;
-  closeToHighway?: boolean;
-  // you can extend with all other fields if needed
-  [key: string]: any;
-};
+//   // Other Rooms
+//   poojaRoom?: boolean;
+//   studyRoom?: boolean;
+//   servantRoom?: boolean;
+//   storeRoom?: boolean;
+//   // Property Features
+//   highCeilingHeight?: boolean;
+//   falseCeilingLighting?: boolean;
+//   internetConnectivity?: boolean;
+//   centrallyAirConditioned?: boolean;
+//   securityFireAlarm?: boolean;
+//   recentlyRenovated?: boolean;
+//   privateGardenTerrace?: boolean;
+//   naturalLight?: boolean;
+//   airyRooms?: boolean;
+//   intercomFacility?: boolean;
+//   spaciousInteriors?: boolean;
+//   // Society or Building Features
+//   fitnessCenter?: boolean;
+//   swimmingPool?: boolean;
+//   clubhouseCommunityCenter?: boolean;
+//   securityPersonnel?: boolean;
+//   lifts?: boolean;
+//   // Additional Features
+//   separateEntryForServantRoom?: boolean;
+//   noOpenDrainageAround?: boolean;
+//   bankAttachedProperty?: boolean;
+//   lowDensitySociety?: boolean;
+//   // Water Source
+//   municipalCorporation?: boolean;
+//   borewellTank?: boolean;
+//   water24x7?: boolean;
+//   // Overlooking
+//   overlookingPool?: boolean;
+//   overlookingParkGarden?: boolean;
+//   overlookingClub?: boolean;
+//   overlookingMainRoad?: boolean;
+//   // Other Features
+//   inGatedSociety?: boolean;
+//   cornerProperty?: boolean;
+//   petFriendlySociety?: boolean;
+//   wheelchairFriendly?: boolean;
+//   // Location Advantages
+//   closeToMetroStation?: boolean;
+//   closeToSchool?: boolean;
+//   closeToHospital?: boolean;
+//   closeToMarket?: boolean;
+//   closeToRailwayStation?: boolean;
+//   closeToAirport?: boolean;
+//   closeToMall?: boolean;
+//   closeToHighway?: boolean;
+//   // you can extend with all other fields if needed
+//   [key: string]: any;
+// };
 
 // helper: safe filename (falls back to url last segment)
 const nameFrom = (m: { url: string; filename?: string | null }) => {
@@ -154,8 +154,8 @@ const nameFrom = (m: { url: string; filename?: string | null }) => {
 };
 
 // helper: normalize category/value variants from API
-const toCategory = (s: string | undefined | null) =>
-  (s || "").toLowerCase() === "commercial" ? "commercial" : "residential";
+// const toCategory = (s: string | undefined | null) =>
+//   (s || "").toLowerCase() === "commercial" ? "commercial" : "residential";
 
 // ---- MAP API SHAPE -> EditPropertyForm props ----
 const mapApiToEditProps = (api: any) => {
@@ -340,7 +340,7 @@ if (loading || !mapped) return <div>Loading…</div>;
 
 return (
   <EditPropertyForm
-    agentId={2}
+    agentId={agentId}
     listingId={mapped.listingId}
     category={mapped.category}
     initialData={mapped.initialData}

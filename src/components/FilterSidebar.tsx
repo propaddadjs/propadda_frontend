@@ -60,15 +60,15 @@ const DEFAULT_FILTERS: Filters = {
   ageRanges: [],
 };
 
-const PROPERTY_TYPES = [
-  "Flat",
-  "House",
-  "Villa",
-  "Apartment",
-  "Office",
-  "Plot/Land",
-  "Storage/Warehouse",
-];
+// const PROPERTY_TYPES = [
+//   "Flat",
+//   "House",
+//   "Villa",
+//   "Apartment",
+//   "Office",
+//   "Plot/Land",
+//   "Storage/Warehouse",
+// ];
 // define the sets
 const RESIDENTIAL_TYPES = ["Flat", "House", "Villa", "Apartment"];
 const COMMERCIAL_TYPES = ["Office", "Plot/Land", "Storage/Warehouse"];

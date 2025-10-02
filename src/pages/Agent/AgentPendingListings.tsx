@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import {
   BedDouble,
   Bath,
-  Building,
-  Home,
   Briefcase,
   Maximize2,
   MapPin,
@@ -23,13 +21,13 @@ const PAGE_SIZE_OPTIONS = [5, 8, 10, 15];
 
 // --- Types (Reused from AgentAllListings) ---
 interface MediaResponse { filename?: string; ord?: number; url: string; }
-interface OwnerResponse {
-  userId?: number;
-  firstName?: string;
-  lastName?: string;
-  email?: string;
-  phoneNumber?: string;
-}
+// interface OwnerResponse {
+//   userId?: number;
+//   firstName?: string;
+//   lastName?: string;
+//   email?: string;
+//   phoneNumber?: string;
+// }
 
 interface PropertyResponse {
   listingId: number;

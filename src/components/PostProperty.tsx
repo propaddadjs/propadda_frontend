@@ -217,10 +217,10 @@ const Row: React.FC<{
   </div>
 );
 
-const toNonNegativeInt = (s: string) => {
-  const digits = s.replace(/\D/g, "");
-  return digits ? Math.max(0, parseInt(digits, 10)) : 0;
-};
+// const toNonNegativeInt = (s: string) => {
+//   const digits = s.replace(/\D/g, "");
+//   return digits ? Math.max(0, parseInt(digits, 10)) : 0;
+// };
 
 
 // ---------------- Component ----------------
@@ -228,7 +228,7 @@ const PropertyForm: React.FC = () => {
   const [category, setCategory] = useState<PropertyCategory>("residential");
   const [mediaMeta, setMediaMeta] = useState<SavedMeta[]>([]);
   const [mediaFiles, setMediaFiles] = useState<FilesPayload | null>(null);
-  const [resetKey, setResetKey] = useState(0);
+  const [, setResetKey] = useState(0);
 
   const [formData, setFormData] = useState<FormData>({
     preference: "Sell",

@@ -50,7 +50,7 @@ const BuyerLayout: React.FC = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [hasUnread, setHasUnread] = useState<boolean>(false);
   const navigate = useNavigate();
-  const location = useLocation();
+  //const location = useLocation();
 
   const [profileOpen, setProfileOpen] = useState(false);
   const profileRef = useRef<HTMLDivElement>(null);

@@ -42,8 +42,8 @@ const SellerCard: React.FC<{
   onToggleVerify: (id: number) => void;
 }> = ({ s, onToggleVerify }) => {
   const name = `${s.firstName ?? ""} ${s.lastName ?? ""}`.trim() || "Unnamed";
-  const phoneHref = s.phoneNumber ? `tel:+91${s.phoneNumber}` : undefined;
-  const mailHref = s.email ? `mailto:${s.email}` : undefined;
+  // const phoneHref = s.phoneNumber ? `tel:+91${s.phoneNumber}` : undefined;
+  // const mailHref = s.email ? `mailto:${s.email}` : undefined;
   const location = [s.city, s.state].filter(Boolean).join(", ");
 
   return (
