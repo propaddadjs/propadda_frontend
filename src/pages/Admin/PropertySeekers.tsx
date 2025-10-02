@@ -166,7 +166,7 @@ const PropertySeekers: React.FC = () => {
   const pageSize = 8;
 
    const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8080";
+  import.meta.env.VITE_API_BASE_URL ?? "https://propadda-backend-506455747754.asia-south2.run.app";
 
 
   // sort by userId desc in-memory (background) before paginating
