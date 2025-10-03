@@ -266,7 +266,7 @@ const AgentPendingListings: React.FC = () => {
       ) : rawData.length === 0 ? (
         <div className="p-8 text-center bg-white rounded-xl shadow-sm text-gray-600">
           You have no properties currently awaiting approval.
-          <Link to="/agent/listings/create" className="text-orange-500 hover:underline block mt-2">
+          <Link to="/agent/postproperty" className="text-orange-500 hover:underline block mt-2">
             Click here to add a new property.
           </Link>
         </div>

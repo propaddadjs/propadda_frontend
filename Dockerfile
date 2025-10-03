@@ -1,6 +1,15 @@
 # ---------- build stage ----------
 FROM node:20-alpine AS build
 WORKDIR /app
+
+# Accept build-time args (coming from Cloud Build --build-arg)
+ARG VITE_API_BASE_URL
+ARG VITE_CSC_API_KEY
+
+# Make them available to Vite during `npm run build`
+ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
+ENV VITE_CSC_API_KEY=$VITE_CSC_API_KEY
+
 # Install deps first to leverage Docker cache
 COPY package*.json ./
 RUN npm ci

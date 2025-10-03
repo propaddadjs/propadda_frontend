@@ -9,7 +9,7 @@ import { Mail, Phone, MapPin, Edit3, Send, Briefcase, Upload, AlertCircle, Loade
 const AGENT_ID = 4; // Replace with dynamic Agent ID
 
 // NOTE: Fetch CSC_API_KEY from environment variables (e.g., VITE_CSC_API_KEY in Vite)
-const CSC_API_KEY = import.meta.env.VITE_CSC_API_KEY || "ZXBOVkxVdmVaNjhiMHlqQm5PZXpxWmRSanlIUHB4a0hCSHBwNGRFRA=="; 
+const CSC_API_KEY = import.meta.env.VITE_CSC_API_KEY || ""; 
 
 // --- Types ---
 interface AgentResponse {
