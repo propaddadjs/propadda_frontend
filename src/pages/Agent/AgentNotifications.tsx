@@ -494,10 +494,10 @@ const AgentNotifications: React.FC = () => {
             <button
                 onClick={markAllAsRead}
                 disabled={total <= 0 || (unreadCount ?? 0) <= 0}
-                className={`px-3 py-1.5 rounded-full border border-orange-600 border-2 text-sm font-bold transition
+                className={`px-3 py-1.5 rounded-full border-2 text-sm font-bold transition
                   ${total > 0 && (unreadCount ?? 0) > 0
-                    ? "bg-white hover:bg-orange-50 text-orange-600 cursor-pointer"
-                    : "bg-gray-100 text-gray-400 border-gray-300 cursor-not-allowed"
+                    ? "border-orange-600 bg-white hover:bg-orange-50 text-orange-600 cursor-pointer"
+                    : "border-gray-300 bg-gray-100 text-gray-400 cursor-not-allowed"
                   }`}
               >
               Mark all as read

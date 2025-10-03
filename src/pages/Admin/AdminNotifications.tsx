@@ -468,7 +468,7 @@ const AdminNotifications: React.FC = () => {
               disabled={total <= 0}
               className={`px-3 py-1.5 rounded-full border-2 text-sm font-bold transition
                 ${total > 0
-                  ? "border-orange-600 bg-white hover:bg-gray-100 text-orange-600 cursor-pointer"
+                  ? "border-orange-600 bg-white hover:bg-orange-50 text-orange-600 cursor-pointer"
                   : "border-gray-300 bg-gray-100 text-gray-400 cursor-not-allowed"
                 }`}
               >
