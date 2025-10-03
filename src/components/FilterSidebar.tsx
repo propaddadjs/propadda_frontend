@@ -139,7 +139,7 @@ const FilterSidebar: React.FC<Props> = ({ initial = {}, onApply, onReset }) => {
   const [collapsed, setCollapsed] = useState(true);
 
   // CountryStateCity API key (if set in env)
-  const CSC_API_KEY = (import.meta.env.VITE_CSC_API_KEY as string) || "";
+  const CSC_API_KEY = (import.meta.env.VITE_CSC_API_KEY as string) || "ZXBOVkxVdmVaNjhiMHlqQm5PZXpxWmRSanlIUHB4a0hCSHBwNGRFRA==";
 
   // Derived conditions
   const isCommercial = filters.category === "Commercial";

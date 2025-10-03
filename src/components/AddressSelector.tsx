@@ -36,7 +36,7 @@ interface Props {
   }) => void; // pincode is now a number (or undefined)
 }
 
-const CSC_API_KEY = (import.meta.env.VITE_CSC_API_KEY as string) || "";
+const CSC_API_KEY = (import.meta.env.VITE_CSC_API_KEY as string) || "ZXBOVkxVdmVaNjhiMHlqQm5PZXpxWmRSanlIUHB4a0hCSHBwNGRFRA==";
 
 // --- Local UI styles for consistent look ---
 const INPUT_CLASS =
