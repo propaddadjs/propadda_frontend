@@ -445,7 +445,7 @@ const AdminNotifications: React.FC = () => {
               )}
             </div>
 
-            {total > 0 && (
+            {/* {total > 0 && (
               <button
                 onClick={async () => {
                   await markAllAsRead();
@@ -456,7 +456,24 @@ const AdminNotifications: React.FC = () => {
               >
                 Mark all as read
               </button>
-            )}
+            )} */}
+            <button
+              onClick={async () => {
+                if (total > 0) {
+                  await markAllAsRead();
+                  // tell AdminLayout to hide the dot immediately
+                  window.dispatchEvent(new Event("admin:markAllRead"));
+                }
+              }}
+              disabled={total <= 0}
+              className={`px-3 py-1.5 rounded-full border-2 text-sm font-bold transition
+                ${total > 0
+                  ? "border-orange-600 bg-white hover:bg-gray-100 text-orange-600 cursor-pointer"
+                  : "border-gray-300 bg-gray-100 text-gray-400 cursor-not-allowed"
+                }`}
+              >
+              Mark all as read
+            </button>
           </div>
         </div>
       </div>

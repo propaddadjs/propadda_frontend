@@ -6,8 +6,8 @@ import { Star, X, Bell, AlertCircle } from "lucide-react";
  const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL ?? "https://propadda-backend-506455747754.asia-south2.run.app";
 
-const AGENT_ID = 2; // Replace with dynamic Agent ID later
-const PAGE_SIZE_OPTIONS = [5, 8, 10, 15]; 
+const AGENT_ID = Number(localStorage.getItem("agentId") || 2);
+const PAGE_SIZE_OPTIONS = [5, 10, 15]; 
 
 /* ------------ Types ------------- */
 type NotificationType =
@@ -330,7 +330,7 @@ const AgentNotifications: React.FC = () => {
 
   // pagination 
   const [page, setPage] = useState<number>(0);
-  const [size, setSize] = useState<number>(8); // Default size set to 8
+  const [size, setSize] = useState<number>(10); // Default size set to 10
   
   // modal
   const [openItem, setOpenItem] = useState<NotificationDetails | null>(null);
@@ -388,6 +388,12 @@ const AgentNotifications: React.FC = () => {
     };
   }, [openItem]);
 
+  // Hide the dot in the layout when unread hits 0 (mirror of Admin)
+  useEffect(() => {
+    if (all.length > 0 && (unreadCount ?? 0) === 0) {
+      window.dispatchEvent(new Event("agent:markAllRead"));
+    }
+  }, [unreadCount, all.length]);
 
   const markNotificationViewed = async (id: number) => {
     // 1. Optimistic UI update
@@ -397,7 +403,14 @@ const AgentNotifications: React.FC = () => {
       )
     );
     // 2. Decrement unread count locally
-    setUnreadCount(prev => (prev !== null && prev > 0 ? prev - 1 : 0));
+    // setUnreadCount(prev => (prev !== null && prev > 0 ? prev - 1 : 0));
+    setUnreadCount(prev => {
+      const next = (prev ?? 0) > 0 ? (prev as number) - 1 : 0;
+      if (next === 0) {
+        window.dispatchEvent(new Event("agent:markAllRead"));
+      }
+      return next;
+    });
     
     // 3. API call
     try {
@@ -413,6 +426,7 @@ const AgentNotifications: React.FC = () => {
     // 1. Optimistic UI update
     setAll((prev) => prev.map((n) => ({ ...n, notificationViewed: true })));
     setUnreadCount(0);
+    window.dispatchEvent(new Event("agent:markAllRead"));
 
     // 2. API call
     try {
@@ -468,14 +482,26 @@ const AgentNotifications: React.FC = () => {
               )}
             </div>
 
-            {total > 0 && unreadCount && unreadCount > 0 && (
+            {/* {total > 0 && unreadCount && unreadCount > 0 && (
               <button
                 onClick={markAllAsRead}
                 className="px-3 py-1.5 rounded-full border border-orange-600 border-2 bg-white hover:bg-orange-50 text-sm text-orange-600 font-bold transition"
               >
                 Mark all as read
               </button>
-            )}
+            )} */}
+
+            <button
+                onClick={markAllAsRead}
+                disabled={total <= 0 || (unreadCount ?? 0) <= 0}
+                className={`px-3 py-1.5 rounded-full border border-orange-600 border-2 text-sm font-bold transition
+                  ${total > 0 && (unreadCount ?? 0) > 0
+                    ? "bg-white hover:bg-orange-50 text-orange-600 cursor-pointer"
+                    : "bg-gray-100 text-gray-400 border-gray-300 cursor-not-allowed"
+                  }`}
+              >
+              Mark all as read
+            </button>
           </div>
         </div>
       </div>
